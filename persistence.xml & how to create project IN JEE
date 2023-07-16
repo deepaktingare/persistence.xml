@@ -1,0 +1,55 @@
+<!--
+In jee ide
+-------------------------------------------------------------------------------------------------
+create new java maven project.
+download maven jar file zip file and extarct all
+right cllick on project name-->build path-->configuretion-->click on librarly--> add external file -->click of downloaded jar file-->
+click on applly and close
+-------------------------------------------------------------------------------------------------
+open pom.xml --> add database
+  	<dependencies>
+		<!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<version>8.0.33</version>
+		</dependency>
+
+	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+	    <dependency>
+		   <groupId>org.hibernate</groupId>
+		   <artifactId>hibernate-core</artifactId>
+		   <version>5.6.14.Final</version>
+	    </dependency>
+	</dependencies>
+-------------------------------------------------------------------------------------------------
+right click on src/main/resources 
+--> Create folder name is META-INF --> create inside meta inf file name is --> persistence.xml
+-->src/main/java --> inside create package
+-->
+
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+  http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+	version="2.1">
+
+	<persistence-unit name="deepak">
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<properties>
+			<property name="javax.persistence.jdbc.driver"
+				value="com.mysql.cj.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mysql://localhost:3306/Employee" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password"
+				value="root" />
+			<property name="hibernate.show_sql" value="true" />
+
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.MySQL8Dialect" />
+
+		</properties>
+	</persistence-unit>
+</persistence>
